@@ -1,0 +1,24 @@
+<h1>Tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li> 
+        <% if task.completed %>
+          <%= icon('fas', 'check-square') %>
+        <% else  %>
+          <%= icon('fas', 'square') %>
+        <% end %>
+        <%= link_to task.title, task_path(task.id) %>
+        <br>
+        <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
+        <%= icon('fas', 'trash') %>
+        <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to "New task", new_task_path %>
+  <%= icon('fas', 'square') %> Add  new task
+

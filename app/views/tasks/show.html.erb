@@ -1,0 +1,18 @@
+<%= link_to edit_task_path(@task.id), class: 'pull-right btn btn-default' do %>
+  <%= icon('fas', 'pencil') %> Edit this task
+<% end %>
+
+<h1><%= @task.title %></h1>
+
+<p class="well"><%= @task.details %></p>
+
+<% if @task.completed %>
+  <%= icon('fas', 'check-square') %></i> This task is completed
+<% else %>
+  <%= icon('fas', 'square') %> This task is not completed yet
+<% end %>
+
+<hr>
+<%= link_to tasks_path do %>
+  <%= icon('fas', 'square') %> Back to list
+<% end %>
